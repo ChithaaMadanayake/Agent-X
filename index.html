@@ -1,35 +1,212 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Agent X - You Are Not Alone</title>
+  <title>Agent X - Your Digital Guardian</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/AX.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #000;
+      overflow: hidden;
+      color: #d3e7e3;
+    }
+
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+      animation: glitchOut 4s ease-in-out forwards;
+    }
+
+    #splash img {
+      width: 150px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 15px #0ff);
+    }
+
+    #splash h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #0ff; }
+      20% { text-shadow: -2px -2px #f0f; }
+      40% { text-shadow: 2px -2px #0ff; }
+      60% { text-shadow: -2px 2px #f0f; }
+      80% { text-shadow: 2px 2px #0ff; }
+      100% { text-shadow: 0 0 10px #0ff; }
+    }
+
+    @keyframes glitchOut {
+      0% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; display: none; }
+    }
+
+    #main {
+      opacity: 0;
+      animation: fadeIn 1s 4s forwards;
+      padding: 40px;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3em;
+      text-transform: uppercase;
+      color: #0ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #0ff;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 850px;
+      margin: 20px auto;
+      line-height: 1.8;
+      color: #cde;
+    }
+
+    .glow-btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      border: none;
+      background: #0ff;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #0ff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .glow-btn:hover {
+      box-shadow: 0 0 40px #0ff, 0 0 60px #0ff;
+      transform: scale(1.05);
+    }
+
+    .matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <div id="splash">
-    <h1>Initializing Agent X...</h1>
-    <div class="crack"></div>
+    <img src="assets/AX_BGR.png" alt="Agent X Logo">
+    <h1>Booting Up Agent X...</h1>
   </div>
 
   <div id="main">
-    <h1 class="glitch" data-text="AGENT X">AGENT X</h1>
-    <h2>Your Silent Guardian.</h2>
+    <h1>AGENT X</h1>
+    <h2>Your Digital Guardian</h2>
 
-    <p>You're not just installing an app. You're summoning a digital ally. 💻</p>
-    <p><strong>Agent X</strong> is a hyper-aware AI chatbot trained to understand your emotions when you don’t feel safe, heard, or okay. It's not just support—it’s backup. You speak, it listens—no judgment, no questions, just help.</p>
-    <p>🔍 Scared of hidden cameras in rooms, hotels, or changing areas? <strong>Agent X</strong> scans your surroundings and <strong>detects spy cams</strong> before they find you. You're never alone again.</p>
-    <p>🛡 Built for girls. Built for warriors. Built for <em>you</em>. Don’t be scared anymore. You’ve got an agent in your pocket. 💥</p>
+    <p><strong>Agent X</strong> is more than an app – it's your companion for safety and emotional support. Feel unsafe in an unfamiliar place? We got you. Agent X listens to your concerns and supports you like a trusted friend. 💬</p>
 
-    <p class="coming">Coming soon. Follow the mission. Stay safe. Stay smart.</p>
+    <p>🧠 <strong>Emotional AI Chatbot</strong>: Built with empathy. Speak your mind. You're always heard and never judged.</p>
 
-    <button class="glow-btn" onclick="window.open('https://www.instagram.com/yourusername', '_blank')">Follow Now</button>
+    <p>📷 <strong>Camera Detector</strong>: Detect hidden cameras in hotel rooms, changing rooms, and private spaces. You're never truly alone – your guardian is scanning the room for threats.</p>
+
+    <p>🛡️ <strong>Always Ready</strong>: For girls. For warriors. For the brave. Don’t be afraid anymore. Agent X stands by you 24/7.</p>
+
+    <p style="margin-top: 30px; font-size: 20px; font-weight: bold;">
+      Launching Soon. Join the mission.
+    </p>
+
+    <button class="glow-btn" onclick="window.open('https://www.instagram.com/yourusername', '_blank')">Follow Our Journey</button>
   </div>
 
-  <canvas id="matrix"></canvas>
+  <div class="matrix">
+    <canvas id="matrix"></canvas>
+  </div>
 
-  <footer>&copy; 2025 Agent X. All rights reserved.</footer>
-  <script src="script.js"></script>
+  <footer>
+    &copy; 2025 Agent X. All rights reserved.
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    let chars = "01";
+    chars = chars.split("");
+
+    let fontSize = 16;
+    let columns = canvas.width / fontSize;
+    let drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ffcc";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        let text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 80);
+  </script>
 </body>
 </html>
